@@ -1,0 +1,43 @@
+.handsontable th {
+	background-color: rgb(255, 255, 153);
+	color: black;
+	font-weight: bold;
+}
+
+.handsontable td {
+	background-color: black;
+	color: black;
+}
+
+.handsontable .header {
+	background-color: rgb(255, 255, 153);
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.handsontable .waiting {
+	background-color: black;
+	color: yellow;
+}
+
+.handsontable .announcing {
+	background-color: black;
+	color: plum;
+}
+
+.handsontable .unloading {
+	background-color: black;
+	color: lightgreen;
+}
+
+.handsontable .unloaded {
+	background-color: black;
+	color: cyan;
+}
+
+.handsontable .exited {
+	background-color: black;
+	color: white;
+}
