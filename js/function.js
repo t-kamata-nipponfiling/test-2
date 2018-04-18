@@ -22,7 +22,7 @@ function getData() {
 			if(a[axis] > b[axis]) return 1;
 			return 0;
 		});
-	
+
 	return _.chain(data)
 		.map(function(value) {
 			return {
@@ -31,7 +31,7 @@ function getData() {
 					value.transporterName,
 					"車両：" + value.carNumber,
 					"荷降：" + value.kizaiName,
-					"予定：" + convTime(value.startTime) + "～" + convTime(value.endTime),
+					"予定：" + convTime(value.startTime) + " ～ " + convTime(value.endTime),
 					"受付：" + convTime(value.receiptTime)
 				].join("\n"),
 				status: convStatus(value.statusCode)
