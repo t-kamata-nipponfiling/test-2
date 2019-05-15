@@ -21,7 +21,7 @@
 		function test() {
 			var content = document.getElementById("edit").value
 			for(let i = 0; i < list.length; i++) {
-				content = content.replace(new RegExp(list[i].id, 'g'), Array(list[i].len + 1).join(list[i].chr));
+				content = content.replace(new RegExp(list[i].id, "g"), Array(list[i].len + 1).join(list[i].chr));
 			}
 			document.getElementById("preview").innerHTML = content;
 			document.getElementById("count").innerHTML = ("    " + content.length).substr(-4);
@@ -40,7 +40,7 @@
 			divElm.appendChild(tempArea);
 			
 			tempArea.select();
-			document.execCommand('copy');
+			document.execCommand("copy");
 			divElm.removeChild(tempArea);
 		}
 	</script>
