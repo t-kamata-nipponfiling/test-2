@@ -1,38 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Handsontable Demo">
-	<title>マトリクス表示 - サンプル</title>
-	<script src="js/jquery.js"></script>
-	<script src="js/underscore.js"></script>
-	<script src="js/handsontable.full.js"></script>
-	<link rel="stylesheet" href="css/handsontable.full.css">
-
-	<script src="js/dummy.js"></script>
-	<script src="js/function.js"></script>
-	<script src="js/test.js"></script>
-	<link rel="stylesheet" href="css/test.css">
+	<title>リアルタイムプレビュー（DOM）</title>
+	<style type="text/css">
+		<!--
+			body, textarea {font-family: メイリオ; font-size: 14px;}
+			#char-count {font-weight: bold;}
+		-->
+	</style>
+	
+	<script>
+		var list = [
+			{id: "{center-code}", len: 5, chr: "9"}, 
+			{id: "{center-name}", len: 13, chr: "Ｎ"}, 
+			{id: "{car-number}", len: 4, chr: "9"}, 
+			{id: "{berth-from}", len: 3, chr: "X"}, 
+			{id: "{berth-to}", len: 3, chr: "X"}
+		];
+		function test() {
+			var content = document.getElementById("edit").value
+			for(let i = 0; i < list.length; i++) {
+				content = content.replace(new RegExp(list[i].id, 'g'), Array(list[i].len + 1).join(list[i].chr));
+			}
+			document.getElementById("preview").innerHTML = content;
+			document.getElementById("count").innerHTML = ("    " + content.length).substr(-4);
+			document.getElementById("char-count").style.color = content.length > 70 ? "red" : "black";
+		}
+		function init() {
+			document.getElementById("edit").innerHTML = "[日本アクセス {center-name}]\n車両[{car-number}]\n構内で順番に並び、バース[{berth-from}]-[{berth-to}]へ接車して荷降をしてください。";
+			document.getElementById("char").innerHTML = "文字数：";
+			test();
+		}
+		function copyTextToClipboard(textVal){
+			var tempArea = document.createElement("textarea");
+			tempArea.textContent = textVal;
+			
+			var divElm = document.getElementsByTagName("div")[0];
+			divElm.appendChild(tempArea);
+			
+			tempArea.select();
+			document.execCommand('copy');
+			divElm.removeChild(tempArea);
+		}
+	</script>
 </head>
-<body>
-	<h1>マトリクス表示 - サンプル</h1>
-	<div id="axis">
-		<label><input type="radio" name="axis" value="receiptTime" checked="checked">受付時間</label>
-		<label><input type="radio" name="axis" value="startTime">入荷受付予定時間</label>
-		　
-		<button type="button">動作停止</button>
+<body onload="init()">
+	<h2>リアルタイムプレビュー（DOM）</h2>
+	<input type="button" name="test" value="{center-code}" onClick="copyTextToClipboard('{center-code}')">
+	<input type="button" name="test" value="{center-name}" onClick="copyTextToClipboard('{center-name}')">
+	<input type="button" name="test" value="{car-number}" onClick="copyTextToClipboard('{car-number}')">
+	<input type="button" name="test" value="{berth-from}" onClick="copyTextToClipboard('{berth-from}')">
+	<input type="button" name="test" value="{berth-to}" onClick="copyTextToClipboard('{berth-to}')">
+	<br><br>
+	<textarea id="edit" rows="5" cols="80" onkeyup="test()"></textarea>
+	<br><br>
+	<textarea id="preview" rows="5" cols="80" disabled></textarea>
+	<br><br>
+	<div id="char-count">
+		<label id="char"></label><label id="count"></label>
 	</div>
-	<p>
-		---------------------------------------------------------------------------------------------------------------
-	</p>
-	<div id="status">
-		<label><input type="checkbox" name="status" value="4">退場済</label>
-		<label><input type="checkbox" name="status" value="3" checked>荷降完</label>
-		<label><input type="checkbox" name="status" value="2" checked>荷降中</label>
-		<label><input type="checkbox" name="status" value="1" checked>案内中</label>
-		<label><input type="checkbox" name="status" value="0" checked>待機</label>
-	</div>
-	<br>
-	<div id="example"></div>
 </body>
 </html>
