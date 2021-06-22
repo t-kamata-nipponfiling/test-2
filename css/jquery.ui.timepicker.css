@@ -93,7 +93,7 @@
 .ui-widget.mock { margin: 30px auto; }
 .ui-widget.mock th { font-size: 30px; color: red; padding: 30px; text-align: center; }
 .ui-widget.mock tr { text-align: center; }
-.ui-widget.mock .time td { padding: 10px; font-size: 30px; }
+.ui-widget.mock .time td { padding: 10px; font-size: 50px; }
 .ui-widget.mock .time input#hour { width: 180px; height: 50px; font-size: 50px; text-align: center; border-radius: .1em; }
 .ui-widget.mock .time input#minute { width: 100px; height: 50px; font-size: 50px; text-align: center; border-radius: .1em; }
 .ui-widget.mock .next td { padding: 30px; }
