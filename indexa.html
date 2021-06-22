@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>リアルタイムプレビュー（DOM）</title>
+	<style type="text/css">
+		<!--
+			body, textarea {font-family: メイリオ; font-size: 14px;}
+			#char-count {font-weight: bold;}
+		-->
+	</style>
+	
+	<script>
+		var list = [
+			{id: "{center-code}", len: 5, chr: "9"}, 
+			{id: "{center-name}", len: 13, chr: "Ｎ"}, 
+			{id: "{car-number}", len: 4, chr: "9"}, 
+			{id: "{berth-from}", len: 3, chr: "X"}, 
+			{id: "{berth-to}", len: 3, chr: "X"}
+		];
+		function test() {
+			var content = document.getElementById("edit").value
+			for(let i = 0; i < list.length; i++) {
+				content = content.replace(new RegExp(list[i].id, "g"), Array(list[i].len + 1).join(list[i].chr));
+			}
+			document.getElementById("preview").innerHTML = content;
+			document.getElementById("count").innerHTML = ("    " + content.length).substr(-4);
+			document.getElementById("char-count").style.color = content.length > 70 ? "red" : "black";
+		}
+		function init() {
+			document.getElementById("edit").innerHTML = "[日本アクセス {center-name}]\n車両[{car-number}]\n構内で順番に並び、バース[{berth-from}]-[{berth-to}]へ接車して荷降をしてください。";
+			document.getElementById("char").innerHTML = "文字数：";
+			test();
+		}
+		function copyTextToClipboard(textVal){
+			var tempArea = document.createElement("textarea");
+			tempArea.textContent = textVal;
+			
+			var divElm = document.getElementsByTagName("div")[0];
+			divElm.appendChild(tempArea);
+			
+			tempArea.select();
+			document.execCommand("copy");
+			divElm.removeChild(tempArea);
+		}
+	</script>
+</head>
+<body onload="init()">
+	<h2>リアルタイムプレビュー（DOM）</h2>
+	<input type="button" name="test" value="{center-code}" onClick="copyTextToClipboard('{center-code}')">
+	<input type="button" name="test" value="{center-name}" onClick="copyTextToClipboard('{center-name}')">
+	<input type="button" name="test" value="{car-number}" onClick="copyTextToClipboard('{car-number}')">
+	<input type="button" name="test" value="{berth-from}" onClick="copyTextToClipboard('{berth-from}')">
+	<input type="button" name="test" value="{berth-to}" onClick="copyTextToClipboard('{berth-to}')">
+	<br><br>
+	<textarea id="edit" rows="5" cols="80" onkeyup="test()"></textarea>
+	<br><br>
+	<textarea id="preview" rows="5" cols="80" disabled></textarea>
+	<br><br>
+	<div id="char-count">
+		<label id="char"></label><label id="count"></label>
+	</div>
+</body>
+</html>

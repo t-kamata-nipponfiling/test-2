@@ -1,0 +1,100 @@
+/* ----------------------------------
+ * timepicker stylesheet
+---------------------------------- */
+
+#ui-timepicker-div {
+    padding: 0.2em;
+}
+.ui-timepicker-inline {
+    display: inline;
+}
+.ui-timepicker-table {
+    display: inline-table; width: 0; font-size: 250%;
+    border-radius: .2em; box-shadow: .1em .1em .2em dimgray;
+}
+.ui-timepicker-table table {
+    margin: 0.15em 0 0 0; border-collapse: collapse;
+}
+.ui-timepicker-hours, .ui-timepicker-minutes {
+    padding: 0.2em;
+}
+.ui-timepicker-table .ui-timepicker-title {
+    line-height: 1.8em; text-align: center;
+    border-radius: .2em; background: aliceblue; color: dimgray;
+}
+.ui-timepicker-buttonpane button {
+    line-height: 1.5em; text-align: center;
+    border-radius: .2em; box-shadow: .1em .1em .2em dimgray;
+}
+.ui-timepicker-table td {
+    padding: 0.1em; width: 2.2em;
+}
+.ui-timepicker-table th.periods {
+    padding: 0.1em; width: 2.2em; white-space: nowrap;
+}
+
+/* anchors for clickable cells */
+.ui-timepicker-table td a {
+    display: block; padding: 0.3em 0.3em 0.3em 0.3em; width: 1.2em; text-align: center; text-decoration: none; cursor: pointer;
+    border-radius: .2em; box-shadow: .1em .1em .2em dimgray;
+}
+/* span for disabled cells */
+.ui-timepicker-table td span {
+    display: block; padding: 0.3em 0.3em 0.3em 0.3em; width: 1.2em; text-align: center; text-decoration: none;
+    border-radius: .2em; box-shadow: .1em .1em .2em dimgray;
+}
+/* buttons and button pane styling */
+.ui-timepicker .ui-timepicker-buttonpane {
+    background-image: none; margin: .7em 0 0 0; padding: 0 .2em; border-left: 0; border-right: 0; border-bottom: 0;
+}
+.ui-timepicker .ui-timepicker-buttonpane button {
+    margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width: auto; overflow: visible;
+}
+/* close button */
+.ui-timepicker .ui-timepicker-close {
+    float: right;
+}
+/* now button */
+.ui-timepicker .ui-timepicker-now {
+    float: left;
+}
+/* deselect button */
+.ui-timepicker .ui-timepicker-deselect {
+    float: left;
+}
+
+.ui-widget-content .ui-state-default {
+	border: 1px solid #dddddd;
+	background: white 50% 50% repeat-x;
+}
+.ui-widget-content .ui-state-hover, .ui-widget-content .ui-state-focus {
+	border: 1px solid #dddddd;
+	background: lightyellow 50% 50% repeat-x;
+}
+.ui-widget-content .ui-state-active {
+	border: 1px solid #dddddd;
+	background: lightyellow 50% 50% repeat-x;
+}
+.ui-widget-content .hour-am {
+    color: royalblue;
+}
+.ui-widget-content .hour-pm {
+    color: deeppink;
+}
+.ui-widget-content .minute {
+    color: darkcyan;
+}
+
+
+/* ----------------------------------
+ * display stylesheet
+---------------------------------- */
+
+.ui-widget.mock { margin: 30px auto; }
+.ui-widget.mock th { font-size: 30px; color: red; padding: 30px; text-align: center; }
+.ui-widget.mock tr { text-align: center; }
+.ui-widget.mock .time td { padding: 10px; font-size: 30px; }
+.ui-widget.mock .time input#hour { width: 180px; height: 50px; font-size: 50px; text-align: center; border-radius: .1em; }
+.ui-widget.mock .time input#minute { width: 100px; height: 50px; font-size: 50px; text-align: center; border-radius: .1em; }
+.ui-widget.mock .next td { padding: 30px; }
+.ui-widget.mock .next input { width: 100px; font-size: 15px; text-align: center; }
