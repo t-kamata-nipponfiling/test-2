@@ -602,6 +602,7 @@
                         }
                     }
                     html += '</tr>';
+                    if (row + 1 == pmFirstRow) html += '<tr><th class="hour-pause"><th></tr>';
                 }
                 html += '</table>' + // Close the hours cells table
                         '</td>'; // Close the Hour td

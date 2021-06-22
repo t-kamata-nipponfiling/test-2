@@ -78,6 +78,9 @@
 .ui-widget-content .hour-am {
     color: royalblue;
 }
+.ui-widget-content .hour-pause {
+    padding: 15px;
+}
 .ui-widget-content .hour-pm {
     color: deeppink;
 }
